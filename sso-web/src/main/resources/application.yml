@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /sso-server
+# 资源路径
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  web:
+    resources:
+      static-locations: classpath:/static/
+  freemarker:
+    template-loader-path: classpath:/templates/
+    suffix: .ftl
+    charset: utf-8
+    settings:
+      number_format: 0.##########
+    request-context-attribute: request
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.99.212.118:3306/sso-server?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:/resources/mapper/**/*Mapper.xml
+  global-config:
+    db-config:
+      logic-not-delete-value: 0  # 逻辑未删除值(默认为 0)
+      logic-delete-value: 1  # 逻辑已删除值(默认为 1)
+      logic-delete-field: deleted # 全局逻辑删除字段
+# 如果要用段落分开  使用 ---
+

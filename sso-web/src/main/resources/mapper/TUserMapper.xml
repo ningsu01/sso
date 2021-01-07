@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper xmlns="http://mybatis.org/schema/mybatis-mapper" namespace="com.sso.mapper.TUserMapper">
+    <update id="updateUserById" parameterType="java.lang.Integer">
+        UPDATE t_user SET deleted = 1 WHERE userid = #{userid}
+    </update>
+</mapper>
